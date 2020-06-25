@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 
 namespace Elite.Data
-{//Prueba
+{
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
