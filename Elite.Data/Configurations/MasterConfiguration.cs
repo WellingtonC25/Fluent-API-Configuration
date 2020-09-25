@@ -26,7 +26,11 @@ namespace Elite.Data.Configurations
             builder.Property<string>("NombreEmpleado")
                 .HasColumnType("nvarchar(30)");
 
-           
+            builder.HasOne(x => x.Cliente).WithOne(m => m.Master)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Empleado).WithOne(m => m.Master)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

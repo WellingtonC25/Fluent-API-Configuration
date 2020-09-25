@@ -25,6 +25,14 @@ namespace Elite.Data.Configurations
 
             builder.Property<string>("DescripcionVehiculo")
                 .HasColumnType("nvarchar(50)");
+
+            builder.HasOne(p => p.Marca)
+            .WithMany(p => p.Vehiculos)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(p => p.TipoVehiculo)
+            .WithMany(p => p.Vehiculos)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

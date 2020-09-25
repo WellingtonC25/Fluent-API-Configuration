@@ -22,6 +22,11 @@ namespace Elite.Data.Configurations
 
             builder.Property<string>("Descripcion")
                 .HasColumnType("nvarchar(100)");
+
+             builder.HasMany(p => p.Modelos)
+             .WithOne(p => p.Marca)
+             .HasForeignKey(b => b.MarcaId)
+             .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

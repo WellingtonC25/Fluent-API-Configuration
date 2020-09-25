@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Elite.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200625162904_AddingToDataBase")]
+    [Migration("20200924032449_AddingToDataBase")]
     partial class AddingToDataBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -56,7 +56,8 @@ namespace Elite.Data.Migrations
                     b.Property<int>("Codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer: ValuesGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("SqlServer: ValuesGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<double>("ITBIS")
                         .HasColumnType("float");
@@ -174,7 +175,8 @@ namespace Elite.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer: ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("SqlServer: ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
@@ -197,6 +199,7 @@ namespace Elite.Data.Migrations
                     b.Property<int>("Codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer : ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descripcion")
@@ -220,6 +223,7 @@ namespace Elite.Data.Migrations
                     b.Property<int>("Codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer: ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descripcion")

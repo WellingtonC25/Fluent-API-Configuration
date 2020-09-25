@@ -10,8 +10,9 @@ using System.Text;
 
 namespace Elite.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext:DbContext
     {
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
            : base(options)
         {
@@ -41,47 +42,47 @@ namespace Elite.Data
             modelBuilder.ApplyConfiguration(new VehiculoConfiguration());
 
             #region Relaciones de Marca
-             modelBuilder.Entity<Marca>()
-             .HasMany(p => p.Modelos)
-             .WithOne(p => p.Marca)
-             .OnDelete(DeleteBehavior.Cascade);
+             //modelBuilder.Entity<Marca>()
+             //.HasMany(p => p.Modelos)
+             //.WithOne(p => p.Marca)
+             //.OnDelete(DeleteBehavior.Cascade);
             #endregion
 
             #region Relaciones de Master 
 
-            modelBuilder.Entity<Master>()
-           .HasOne(c => c.Cliente)
-           .WithOne(e => e.Master)
-           .HasForeignKey<Master>(b => b.ClienteId)
-           .OnDelete(DeleteBehavior.Cascade) ;
+           // modelBuilder.Entity<Master>()
+           //.HasOne(c => c.Cliente)
+           //.WithOne(e => e.Master)
+           //.HasForeignKey<Master>(b => b.ClienteId)
+           //.OnDelete(DeleteBehavior.Cascade) ;
 
-            modelBuilder.Entity<Master>()
-           .HasOne(c => c.Empleado)
-           .WithOne(e => e.Master)
-           .HasForeignKey<Master>(b => b.EmpleadoId)
-            .OnDelete(DeleteBehavior.Cascade);
+           // modelBuilder.Entity<Master>()
+           //.HasOne(c => c.Empleado)
+           //.WithOne(e => e.Master)
+           //.HasForeignKey<Master>(b => b.EmpleadoId)
+           // .OnDelete(DeleteBehavior.Cascade);
             #endregion
 
             #region Relaciones de Vehiculos
 
-             modelBuilder.Entity<Vehiculo>()
-             .HasOne(p => p.Marca)
-             .WithMany(p => p.Vehiculos)
-             .OnDelete(DeleteBehavior.Cascade);
+             //modelBuilder.Entity<Vehiculo>()
+             //.HasOne(p => p.Marca)
+             //.WithMany(p => p.Vehiculos)
+             //.OnDelete(DeleteBehavior.Cascade);
 
-             modelBuilder.Entity<Vehiculo>()
-               .HasOne(p => p.TipoVehiculo)
-               .WithMany(p => p.Vehiculos)
-               .OnDelete(DeleteBehavior.Cascade);
+             //modelBuilder.Entity<Vehiculo>()
+             //  .HasOne(p => p.TipoVehiculo)
+             //  .WithMany(p => p.Vehiculos)
+             //  .OnDelete(DeleteBehavior.Cascade);
 
             #endregion
 
             #region Relaciones de Detalles
 
-            modelBuilder.Entity<Detail>()
-            .HasOne(p => p.Master)
-            .WithMany(p => p.Details)
-            .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<Detail>()
+            //.HasOne(p => p.Master)
+            //.WithMany(p => p.Details)
+            //.OnDelete(DeleteBehavior.Cascade);
 
             #endregion
         }

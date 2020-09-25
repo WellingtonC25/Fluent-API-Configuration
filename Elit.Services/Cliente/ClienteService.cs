@@ -3,13 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Elit.Services.Cliente
 {
     public class ClienteService : IClienteService
     {
-        ApplicationDbContext context;
+        private static ApplicationDbContext context;
+
+        public ClienteService(ApplicationDbContext _context)
+        {
+            context = _context;
+        }
 
         public async Task CreateCliente(Model.Cliente cliente)
         {
@@ -26,7 +32,7 @@ namespace Elit.Services.Cliente
 
         public async Task<IEnumerable<Model.Cliente>> GetAll()
         {
-            return await context.Clientes.ToListAsync();
+            return await  context.Clientes.ToListAsync();
         }
 
         public async Task GetById(int? Id)

@@ -164,7 +164,7 @@ namespace Elite.Data.Migrations
                         column: x => x.DetailCodigo,
                         principalTable: "Details",
                         principalColumn: "Codigo",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,7 +187,7 @@ namespace Elite.Data.Migrations
                         column: x => x.DetailCodigo,
                         principalTable: "Details",
                         principalColumn: "Codigo",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Vehiculos_Marcas_MarcaId",
                         column: x => x.MarcaId,

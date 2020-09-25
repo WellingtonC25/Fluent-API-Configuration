@@ -14,11 +14,12 @@ namespace Elit.Web.Controllers
     public class ClientesController : Controller
     {
         private readonly IClienteService _service;
-        private ApplicationDbContext context;
+        private ApplicationDbContext _context;
 
-        public ClientesController(IClienteService service)
+        public ClientesController(IClienteService service, ApplicationDbContext context)
         {
             _service = service;
+            _context = context;
         }
 
         // GET: Clientes
@@ -152,7 +153,7 @@ namespace Elit.Web.Controllers
 
         private bool ClienteExists(int id)
         {
-            return context.Clientes.Any(p => p.Id == id);
+            return _context.Clientes.Any(p => p.Id == id);
         }
     }
 }

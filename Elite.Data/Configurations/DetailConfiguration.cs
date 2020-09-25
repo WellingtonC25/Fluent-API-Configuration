@@ -13,13 +13,12 @@ namespace Elite.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Detail> builder)
         {
-
             builder.Property<int>("Codigo")
                 .ValueGeneratedOnAdd()
                 .HasColumnType("int")
                 .HasAnnotation("SqlServer: ValuesGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            builder.HasNoKey();
+            builder.HasKey("Codigo");
 
             builder.Property<Guid>("MasterId")
                 .HasColumnType("uniqueidentifier");
@@ -49,7 +48,12 @@ namespace Elite.Data.Configurations
                 .HasColumnType("float");
 
             builder.Property<double>("Total")
-                .HasColumnType("float");                
+                .HasColumnType("float");
+
+            builder.HasOne(p => p.Master)
+            .WithMany(p => p.Details)
+            .HasForeignKey(p => p.MasterId)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
