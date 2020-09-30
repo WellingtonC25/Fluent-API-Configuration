@@ -12,7 +12,10 @@ namespace Elite.Data
 {
     public class ApplicationDbContext:DbContext
     {
+        public ApplicationDbContext()
+        {
 
+        }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
            : base(options)
         {
@@ -29,6 +32,8 @@ namespace Elite.Data
         public DbSet<TipoVehiculo> TipoVehiculos { get; set; }
         public DbSet<Vehiculo> Vehiculos { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+          => options.UseSqlServer("Connection");
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ClienteConfiguration());

@@ -27,6 +27,8 @@ namespace Elit.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
             services.AddDbContext<ApplicationDbContext>(option =>
             option.UseSqlServer(Configuration.GetConnectionString("Connection")));
 
